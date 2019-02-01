@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <router-link to="/dashboard" class="nav-link">
-              <i class="fas fa-tachometer-alt nav-icon"></i>
+              <i class="fas fa-tachometer-alt nav-icon blue"></i>
                 <p>Dashboard</p>
             </router-link>
           </li>
