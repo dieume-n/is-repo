@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>IS- Repo</title>
+  <title>IS Repo</title>
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </router-link>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-cog green"></i>
               <p>
                 Management
@@ -82,26 +82,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/users" class="nav-link active">
+                <router-link to="/users" class="nav-link ">
                   <i class="fa fa-users nav-icon"></i>
-                  <p>Users</p>
+                  <p>Students</p>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link to="/institutions" class="nav-link ">
+                  <i class="fa fa-university nav-icon"></i>
+                  <p>Institutions</p>
                 </router-link>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-              <router-link to="/profile" class="nav-link">
-                <i class="fas fa-user nav-icon orange"></i>
+            <router-link to="/profile" class="nav-link">
+              <i class="fas fa-user nav-icon orange"></i>
                 <p>Profile</p>
-              </router-link>
+            </router-link>
             </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-sign-out-alt red"></i>
-              <p>
-                Logout
-              </p>
+            <a class="nav-link" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                  <i class="nav-icon fas fa-sign-out-alt red"></i>
+                    <p>{{ __('Logout') }}</p>
             </a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
           </li>
         </ul>
       </nav>
